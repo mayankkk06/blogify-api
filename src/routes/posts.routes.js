@@ -1,12 +1,9 @@
-const express = require('express');
-
+const express = require("express");
 const router = express.Router();
+const postController = require("../controllers/posts.controller");
 
-// GET /api/v1/posts
-router.get('/', (req, res) => {
-  res.json({
-    message: 'All posts fetched successfully'
-  });
-});
+// routes
+router.get("/", postController.getAllPosts);
+router.get("/:postId", postController.getPostById);
 
 module.exports = router;
