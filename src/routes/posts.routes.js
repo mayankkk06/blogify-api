@@ -1,10 +1,9 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const postController = require("../controllers/posts.controller");
 
-// import controller
-const { getAllPosts } = require('../controllers/posts.controller');
-
-// use controller
-router.get('/', getAllPosts);
+// routes
+router.get("/", postController.getAllPosts);
+router.get("/:postId", postController.getPostById);
 
 module.exports = router;

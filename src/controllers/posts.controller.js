@@ -1,11 +1,24 @@
-// controller function
-const getAllPosts = (req, res) => {
+const getAllPosts = async (req, res) => {
   res.json({
-    message: 'All posts fetched successfully'
+    message: "Fetching all posts",
   });
 };
 
-// export function
+const getPostById = async (req, res) => {
+  try {
+    const postId = req.params.postId;
+
+    res.json({
+      message: "Fetching data for post with ID: " + postId,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Server Error",
+    });
+  }
+};
+
 module.exports = {
-  getAllPosts
+  getAllPosts,
+  getPostById,
 };
